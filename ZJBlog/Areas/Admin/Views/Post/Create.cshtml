@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+@model ZJBlog.Areas.Admin.Models.PostViewModel
+<link href="~/Content/bootstrap-markdown/bootstrap-markdown.min.css" rel="stylesheet" />
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.EditorFor(m => m.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
+    </div>
+    @Html.TextAreaFor(m => m.Content, new { @class = "form-control", data_provide = "markdown",rows = "10" })
+    <label class="checkbox">
+        @Html.EditorFor(m => m.Published)
+        Publish
+    </label>
+    <hr />
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+@section scripts
+{
+    <script src="~/Scripts/markdown.js"></script>
+    <script src="~/Scripts/to-markdown.js"></script>
+    <script src="~/Scripts/bootstrap-markdown.js"></script>
+}
