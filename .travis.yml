@@ -1,6 +1,6 @@
 language: csharp
 install:
-   - travis_retry nuget install .nuget/packages.config -OutputDirectory packages
-   - travis_retry nuget restore ZJBlog.sln
+      - travis_retry nuget install .nuget/packages.config -OutputDirectory packages
+      - travis_retry nuget restore ZJBlog.sln
  script:
-   - xbuild /p:Configuration=Release /verbosity:minimal ZJBlog.sln
+      - xbuild /p:Configuration=Release /verbosity:minimal ZJBlog.sln
