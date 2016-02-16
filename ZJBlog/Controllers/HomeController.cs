@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Dapper;
+using MarkdownSharp;
 using ZJBlog.Framework.Controllers;
 using ZJBlog.Models;
 
@@ -18,7 +19,7 @@ namespace ZJBlog.Controllers
             {
                 var sql =
                     string.Format(
-                        "select top 10 * from post where id not in(select top {0} id from post order by postdate) order by postdate",
+                        "select  * from post order by postdate limit {0},10",
                         10*(page - 1));
                 var posts = connection.Query<Post>(sql);
                 return View(posts);
@@ -43,18 +44,17 @@ namespace ZJBlog.Controllers
         {
             using (var connection = GetOpenConnection())
             {
-                var posts = connection.Query<Post>("select * from post where id=@id",new{id});
+                var posts = connection.Query<Post>("select * from post where id=@id",new{id}).ToList();
+              
                 if (!posts.Any())
                 {
                    return NotFound();
                 }
-                return View(posts.First());
+                var model = posts.First();
+                Markdown mark = new Markdown();
+                model.Content = mark.Transform(model.Content);
+                return View(model);
             }
-        }
-
-        public ActionResult NotFound()
-        {
-            return Content("404");
         }
     }
 }

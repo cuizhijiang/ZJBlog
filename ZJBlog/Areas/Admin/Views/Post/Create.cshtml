@@ -10,11 +10,12 @@
         @Html.EditorFor(m => m.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })
     </div>
     @Html.TextAreaFor(m => m.Content, new { @class = "form-control", data_provide = "markdown",rows = "10" })
-    <label class="checkbox">
-        @Html.EditorFor(m => m.Published)
-        Publish
-    </label>
-    <hr />
+    <div class="checkbox">
+        <label>
+           @Html.EditorFor(m => m.Published)Publish
+        </label>
+    </div>
+    <input type="hidden" name="Id" value="@Model.Id"/>
     <button type="submit" class="btn btn-primary">Submit</button>
 }
 @section scripts

@@ -33,7 +33,7 @@ namespace ZJBlog.Areas.Admin.Controllers
         // GET: Admin/Post/Create
         public ActionResult Create()
         {
-            return View(new PostViewModel());
+            return View(new PostViewModel(){Id = Guid.NewGuid()});
         }
 
         // POST: Admin/Post/Create
@@ -69,7 +69,7 @@ namespace ZJBlog.Areas.Admin.Controllers
         {
             using (var connection = GetOpenConnection())
             {
-               var model= connection.Query<PostViewModel>("select Id,Title,Content,Published from post");
+               var model= connection.Query<PostViewModel>("select Id,Title,Content,Published from post where id=@id",new{id});
                return View("Create", model.First());
             }
             
@@ -86,7 +86,7 @@ namespace ZJBlog.Areas.Admin.Controllers
                     using (var connection = GetOpenConnection())
                     {
                         var result = connection.Execute(
-                             "update post set title=@title,Content=@Content,Published=@Published", model);
+                             "update post set title=@title,Content=@Content,Published=@Published where id=@id", model);
                         if (result > 0)
                         {
                             return RedirectToAction("Index");
@@ -107,7 +107,7 @@ namespace ZJBlog.Areas.Admin.Controllers
             using (var connection = GetOpenConnection())
             {
                 var result = connection.Execute(
-                             "delete post where id= @id", new { id });
+                             "delete from post where id= @id", new { id });
                 if (result > 0)
                 {
                     return RedirectToAction("Index");
