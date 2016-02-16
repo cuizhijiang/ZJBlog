@@ -1,7 +1,7 @@
 version: 1.0.{build}
 configuration: Release
 before_build:
-- cmd: nuget restore ZJBlog\ZJBlog.sln
+- cmd: nuget restore 
 build:
   verbosity: normal
 test: off
