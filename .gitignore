@@ -53,6 +53,7 @@ packages/
 *.user
 *.sln.docstates
 *.ide
+*.bak
 
 # Build results
 [Dd]ebug/
@@ -61,4 +62,3 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
-*.bak
