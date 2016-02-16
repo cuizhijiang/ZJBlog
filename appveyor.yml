@@ -1,0 +1,15 @@
+version: 1.0.{build}
+configuration: Release
+build:
+  publish_wap: true
+  verbosity: normal
+test: off
+artifacts:
+- path: '\'
+  name: Source code
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: Cz/UQpOn/nONB762MUnosxTFKzgeqeAKIGs7nSFX4/oQ9H3p4FEybDShiEOV/hjg
+  artifact: 
+  draft: true
