@@ -42,9 +42,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#################
-## Visual Studio
-#################
+# ================
+# Visual Studio
+# ================
 
 packages/
 
@@ -61,3 +61,4 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+*.bak
