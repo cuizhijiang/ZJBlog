@@ -2,6 +2,5 @@ language: csharp
 solution: ZJBlog.sln
 install:
   - nuget restore ZJBlog.sln
-  - nuget install .nuget/packages.config -OutputDirectory packages
 script:    # the following commands are just examples, use whatever your build process requires
   - xbuild /p:Configuration=Release /verbosity:minimal ZJBlog.sln
