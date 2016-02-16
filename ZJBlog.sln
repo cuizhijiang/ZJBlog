@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZJBlog", "ZJBlog\ZJBlog.csproj", "{11B734C7-A11A-4520-BF6E-B6870DA26588}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZJBlog", "src\ZJBlog.csproj", "{11B734C7-A11A-4520-BF6E-B6870DA26588}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A8499F8A-1351-4D99-8276-EEDD4643FD98}"
 	ProjectSection(SolutionItems) = preProject
