@@ -1,7 +1,8 @@
 version: 1.0.{build}
 configuration: Release
+before_build:
+- cmd: nuget restore ZJBlog\ZJBlog.sln
 build:
-  publish_wap: true
   verbosity: normal
 test: off
 artifacts:
