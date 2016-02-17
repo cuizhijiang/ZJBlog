@@ -3,6 +3,8 @@ configuration: Release
 build:
   verbosity: normal
 test: off
+cache:
+- packages
 artifacts:
 - path: '\'
   name: Source code
