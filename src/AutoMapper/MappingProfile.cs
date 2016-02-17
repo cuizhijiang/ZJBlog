@@ -8,8 +8,8 @@ namespace ZJBlog.AutoMapper
     {
         protected override void Configure()
         {
-            Mapper.CreateMap<Post, PostViewModel>();
-            Mapper.CreateMap<PostViewModel, Post>();
+            CreateMap<Post, PostViewModel>();
+            CreateMap<PostViewModel, Post>();
         }
     }
 }

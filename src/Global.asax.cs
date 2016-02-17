@@ -18,8 +18,6 @@ namespace ZJBlog
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            Mapper.AddProfile<MappingProfile>();
         }
     }
 }

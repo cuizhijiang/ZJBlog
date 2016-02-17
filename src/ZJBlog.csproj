@@ -132,7 +132,6 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
     <Compile Include="Areas\Admin\Models\PostViewModel.cs" />
-    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\MappingProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />

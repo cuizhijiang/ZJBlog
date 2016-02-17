@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Dapper;
 using ZJBlog.Areas.Admin.Models;
+using ZJBlog.AutoMapper;
 using ZJBlog.Framework.Controllers;
 using ZJBlog.Models;
 
@@ -45,7 +46,13 @@ namespace ZJBlog.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var entity = Mapper.Map<PostViewModel, Post>(model);
+                    Mapper
+                    var config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.AddProfile<MappingProfile>();
+                    });
+                    var mapper = config.CreateMapper();
+                    var entity = mapper.Map<PostViewModel, Post>(model);
                     using (var connection = GetOpenConnection())
                     {
                         var result = connection.Execute(
