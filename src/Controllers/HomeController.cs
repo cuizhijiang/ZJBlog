@@ -51,8 +51,6 @@ namespace ZJBlog.Controllers
                    return NotFound();
                 }
                 var model = posts.First();
-                Markdown mark = new Markdown();
-                model.Content = mark.Transform(model.Content);
                 return View(model);
             }
         }
