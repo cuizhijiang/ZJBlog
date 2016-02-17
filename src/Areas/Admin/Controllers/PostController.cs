@@ -46,7 +46,6 @@ namespace ZJBlog.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Mapper
                     var config = new MapperConfiguration(cfg =>
                     {
                         cfg.AddProfile<MappingProfile>();
