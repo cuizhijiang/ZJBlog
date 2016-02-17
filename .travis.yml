@@ -1,5 +1,9 @@
 language: csharp
 solution: ZJBlog.sln
+cache: 
+ - apt
+ - directories:
+   - packages
 install:
   - nuget restore ZJBlog.sln
 script:    # the following commands are just examples, use whatever your build process requires
