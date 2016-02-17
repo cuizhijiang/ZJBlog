@@ -14,6 +14,13 @@ namespace ZJBlog.Areas.Admin.Controllers
 {
     public class PostController : BaseController
     {
+        private readonly IMapper _mapper;
+
+        public PostController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         // GET: Admin/Post
         public ActionResult Index()
         {
@@ -46,12 +53,7 @@ namespace ZJBlog.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var config = new MapperConfiguration(cfg =>
-                    {
-                        cfg.AddProfile<MappingProfile>();
-                    });
-                    var mapper = config.CreateMapper();
-                    var entity = mapper.Map<PostViewModel, Post>(model);
+                    var entity = _mapper.Map<PostViewModel, Post>(model);
                     using (var connection = GetOpenConnection())
                     {
                         var result = connection.Execute(
